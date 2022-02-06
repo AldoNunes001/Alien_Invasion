@@ -2,6 +2,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from avatar import Avatar
 import game_functions as gf
 
 
@@ -16,6 +17,9 @@ def run_game():
     # Make a ship.
     ship = Ship(screen)
 
+    # Just a joke
+    # avatar = Avatar(screen)
+
     # Start the main loop for the game.
     while True:
 
@@ -24,7 +28,7 @@ def run_game():
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings, screen, ship)  # avatar
 
 
 run_game()
