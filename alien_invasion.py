@@ -26,6 +26,9 @@ def run_game():
         # Watch for keyboard and mouse events.
         gf.check_events(ship)
 
+        # Moving the ship
+        ship.update()
+
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
         gf.update_screen(ai_settings, screen, ship)  # avatar
