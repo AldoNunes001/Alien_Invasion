@@ -15,7 +15,7 @@ def run_game():
     pygame.display.set_caption("ALIEN INVASION by Aldo Nunes")
 
     # Make a ship.
-    ship = Ship(screen)
+    ship = Ship(ai_settings, screen)
 
     # Just a joke
     # avatar = Avatar(screen)
