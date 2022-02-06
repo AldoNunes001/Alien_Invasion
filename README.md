@@ -1,4 +1,4 @@
-# Alien_Invasion
+# (In Progress) Alien_Invasion
 ## A version of Alien Invasion game, developed in Python with pygame.
 ### Based on the 'Alien Invasion' project, from 'Python Crash Course' book.
 
