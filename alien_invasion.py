@@ -36,6 +36,12 @@ def run_game():
         # Firing bullets
         bullets.update()
 
+        # Get rid of bullets that have dissapeared.
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+        # print(len(bullets))
+
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
         gf.update_screen(ai_settings, screen, ship, bullets)  # avatar
