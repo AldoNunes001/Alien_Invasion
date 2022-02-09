@@ -34,12 +34,8 @@ def run_game():
         ship.update()
 
         # Firing bullets
-        bullets.update()
-
         # Get rid of bullets that have dissapeared.
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
-                bullets.remove(bullet)
+        gf.update_bullets(bullets)
         # print(len(bullets))
 
         # Redraw the screen during each pass through the loop.
