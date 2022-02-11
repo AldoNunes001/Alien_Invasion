@@ -3,7 +3,6 @@ from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
-from alien import Alien
 # from avatar import Avatar
 import game_functions as gf
 
@@ -22,8 +21,11 @@ def run_game():
     # Make a group to store bullets.
     bullets = Group()
 
-    # Make an alien.
-    alien = Alien(ai_settings, screen)
+    # Make a group of aliens.
+    aliens = Group()
+
+    # Create the fleet of aliens.
+    gf.create_fleet(ai_settings, screen, aliens)
 
     # Just a joke
     # avatar = Avatar(screen)
@@ -44,7 +46,7 @@ def run_game():
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)  # avatar
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)  # avatar
 
 
 run_game()
