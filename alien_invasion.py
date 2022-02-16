@@ -45,7 +45,7 @@ def run_game():
         # print(len(bullets))
 
         # Moving the aliens
-        gf.update_aliens(aliens)
+        gf.update_aliens(ai_settings, aliens)
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
