@@ -26,7 +26,12 @@ class Alien(Sprite):
         """Draw the alien at its current location."""
         self.screen.blit(self.image, self.rect)
 
-    def update(self, factor):
+    def update(self, row, factor):
         """Move the alien."""
-        self.x += (factor * self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
+        if row == 1:
+            self.x += (factor * self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction1)
+        elif row == 2:
+            self.x += (factor * self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction2)
+        elif row == 3:
+            self.x += (factor * self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction2)
         self.rect.x = self.x
