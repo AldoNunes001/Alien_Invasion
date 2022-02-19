@@ -108,21 +108,24 @@ def create_alien(ai_settings, screen, aliens, alien_number, row):
 
     if row == 1:
         alien.x = alien_width + 2 * alien_width * alien_number
-        alien.y = alien_width * row
+        alien.y = alien.rect.height + 2 * alien.rect.height * 0
+        # alien.y = alien_width * row
         alien.rect.x = alien.x
         alien.rect.y = alien.y
         aliens.add(alien)
 
     elif row == 2:
         alien.x = ai_settings.screen_width - 2 * alien_width - 2 * alien_width * alien_number
-        alien.y = 10 + alien_width * row
+        alien.y = alien.rect.height + 2 * alien.rect.height * 1
+        # alien.y = 10 + alien_width * row
         alien.rect.x = alien.x
         alien.rect.y = alien.y
         aliens.add(alien)
 
     elif row == 3:
         alien.x = alien_width + 2 * alien_width * alien_number
-        alien.y = 20 + alien_width * row
+        alien.y = alien.rect.height + 2 * alien.rect.height * 2
+        # alien.y = 20 + alien_width * row
         alien.rect.x = alien.x
         alien.rect.y = alien.y
         aliens.add(alien)
