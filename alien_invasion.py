@@ -50,9 +50,9 @@ def run_game():
         gf.update_bullets(bullets)
         # print(len(bullets))
 
-        gf.update_aliens(aliens1, 1)
-        gf.update_aliens(aliens2, 2)
-        gf.update_aliens(aliens3, 3)
+        gf.update_aliens(ai_settings, aliens1, 1)
+        gf.update_aliens(ai_settings, aliens2, 2)
+        gf.update_aliens(ai_settings, aliens3, 3)
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
