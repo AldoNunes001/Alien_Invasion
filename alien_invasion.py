@@ -22,8 +22,11 @@ def run_game():
     # Make a group to store bullets.
     bullets = Group()
 
-    # Make an alien.
-    alien = Alien(ai_settings, screen)
+    # Make a group of aliens.
+    aliens1 = Group()
+
+    # Create a fleet of aliens.
+    gf.create_fleet(ai_settings, screen, aliens1)
 
     # Just a joke
     # avatar = Avatar(screen)
@@ -44,7 +47,7 @@ def run_game():
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)  # avatar
+        gf.update_screen(ai_settings, screen, ship, aliens1, bullets)  # avatar
 
 
 run_game()
