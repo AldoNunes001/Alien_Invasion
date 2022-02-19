@@ -52,7 +52,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, aliens1, aliens2, bullets, avatar=None):
+def update_screen(ai_settings, screen, ship, aliens1, aliens2, aliens3, bullets, avatar=None):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(ai_settings.bg_color)
@@ -62,8 +62,11 @@ def update_screen(ai_settings, screen, ship, aliens1, aliens2, bullets, avatar=N
         bullet.draw_bullet()
 
     ship.blitme()
+
     aliens1.draw(screen)
     aliens2.draw(screen)
+    aliens3.draw(screen)
+
     # Code to joke
     if avatar:
         avatar.blitme()
@@ -118,4 +121,9 @@ def create_fleet(ai_settings, screen, aliens, row):
             alien.rect.y = alien.y
             aliens.add(alien)
 
-
+        elif row == 3:
+            alien.x = alien_width + 2 * alien_width * alien_number
+            alien.y = 1.2 * alien_width * row
+            alien.rect.x = alien.x
+            alien.rect.y = alien.y
+            aliens.add(alien)
