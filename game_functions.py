@@ -52,7 +52,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, aliens1, bullets, avatar=None):
+def update_screen(ai_settings, screen, ship, aliens1, aliens2, bullets, avatar=None):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(ai_settings.bg_color)
@@ -63,6 +63,7 @@ def update_screen(ai_settings, screen, ship, aliens1, bullets, avatar=None):
 
     ship.blitme()
     aliens1.draw(screen)
+    aliens2.draw(screen)
     # Code to joke
     if avatar:
         avatar.blitme()
@@ -90,7 +91,7 @@ def fire_bullet(ai_settings, screen, ship, bullets):
         bullets.add(new_bullet)
 
 
-def create_fleet(ai_settings, screen, aliens):
+def create_fleet(ai_settings, screen, aliens, row):
     """Create a full fleet of aliens."""
     # Create an alien and find the number of aliens in a row.
     # Spacing between each alien is equal to one alien width.
@@ -103,6 +104,18 @@ def create_fleet(ai_settings, screen, aliens):
     for alien_number in range(number_aliens_x):
         # Create an alien and place it in the row.
         alien = Alien(ai_settings, screen)
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        aliens.add(alien)
+        if row == 1:
+            alien.x = alien_width + 2 * alien_width * alien_number
+            alien.y = alien_width * row
+            alien.rect.x = alien.x
+            alien.rect.y = alien.y
+            aliens.add(alien)
+
+        elif row == 2:
+            alien.x = ai_settings.screen_width - 2 * alien_width - 2 * alien_width * alien_number
+            alien.y = 1.2 * alien_width * row
+            alien.rect.x = alien.x
+            alien.rect.y = alien.y
+            aliens.add(alien)
+
+
