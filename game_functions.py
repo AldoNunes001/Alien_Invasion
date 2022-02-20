@@ -173,10 +173,13 @@ def change_fleet_direction(ai_settings, aliens, row):
     ai_settings.fleet_direction[row] *= -1
 
 
-def update_aliens(ai_settings, aliens, row):
+def update_aliens(ai_settings, ship, aliens, row):
     """Update the positions of all aliens in the fleet."""
     check_fleet_edges(ai_settings, aliens, row)
     if row % 2 == 0:
         aliens.update(row, 1)
     elif row % 2 == 1:
         aliens.update(row, -1)
+
+    if pygame.sprite.spritecollideany(ship, aliens):
+        print('Ship hit!!!')
