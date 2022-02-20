@@ -3,6 +3,7 @@ from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
+from game_stats import GameStats
 # from alien import Alien
 # from avatar import Avatar
 import game_functions as gf
@@ -15,6 +16,9 @@ def run_game():
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("ALIEN INVASION by Aldo Nunes")
+
+    # Create an instance to store game statistics.
+    stats = GameStats(ai_settings)
 
     # Make a ship.
     ship = Ship(ai_settings, screen)
@@ -42,16 +46,17 @@ def run_game():
         # Watch for keyboard and mouse events.
         gf.check_events(ai_settings, screen, ship, bullets)
 
-        # Moving the ship
-        ship.update()
+        if stats.game_active:
+            # Moving the ship
+            ship.update()
 
-        # Firing bullets
-        # Get rid of bullets that have dissapeared.
-        gf.update_bullets(ai_settings, screen, aliens, number_of_aliens, bullets)
-        # print(len(bullets))
+            # Firing bullets
+            # Get rid of bullets that have dissapeared.
+            gf.update_bullets(ai_settings, screen, aliens, number_of_aliens, bullets)
+            # print(len(bullets))
 
-        for i in range(number_of_aliens):
-            gf.update_aliens(ai_settings, aliens[i], i)
+            # for i in range(number_of_aliens):
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
