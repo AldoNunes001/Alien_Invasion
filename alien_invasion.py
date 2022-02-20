@@ -23,14 +23,14 @@ def run_game():
     bullets = Group()
 
     # Make a group of aliens.
-    number_aliens = 3
+    number_of_aliens = 3
     aliens = [None, None, None]
-    for i in range(number_aliens):
+    for i in range(number_of_aliens):
         aliens[i] = Group()
 
     # Create a fleet of aliens.
     # The last argument is the number of the row.
-    for i in range(number_aliens):
+    for i in range(number_of_aliens):
         gf.create_fleet(ai_settings, screen, aliens[i], i)
 
     # Just a joke
@@ -50,12 +50,12 @@ def run_game():
         gf.update_bullets(bullets)
         # print(len(bullets))
 
-        for i in range(number_aliens):
+        for i in range(number_of_aliens):
             gf.update_aliens(ai_settings, aliens[i], i)
 
         # Redraw the screen during each pass through the loop.
         # Make the most recently drawn screen visible.
-        gf.update_screen(ai_settings, screen, ship, aliens[0], aliens[1], aliens[2], bullets)  # avatar
+        gf.update_screen(ai_settings, screen, ship, aliens, number_of_aliens, bullets)  # avatar
 
 
 run_game()
