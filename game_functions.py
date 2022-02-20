@@ -173,7 +173,7 @@ def change_fleet_direction(ai_settings, aliens, row):
     ai_settings.fleet_direction[row] *= -1
 
 
-def update_aliens(ai_settings, ship, aliens, row):
+def update_aliens(ai_settings, stats, screen, ship, bullets, aliens, row):
     """Update the positions of all aliens in the fleet."""
     check_fleet_edges(ai_settings, aliens, row)
     if row % 2 == 0:
