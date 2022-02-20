@@ -47,7 +47,7 @@ def run_game():
 
         # Firing bullets
         # Get rid of bullets that have dissapeared.
-        gf.update_bullets(bullets)
+        gf.update_bullets(ai_settings, screen, aliens, number_of_aliens, bullets)
         # print(len(bullets))
 
         for i in range(number_of_aliens):
