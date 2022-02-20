@@ -85,6 +85,11 @@ def update_bullets(ai_settings, screen, aliens, number_of_aliens, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
 
+    check_bullet_alien_collisions(ai_settings, screen, aliens, number_of_aliens, bullets)
+
+
+def check_bullet_alien_collisions(ai_settings, screen, aliens, number_of_aliens, bullets):
+    """Respond to bullet-alien collisions."""
     # Check for any bullets that have hit aliens.
     # If so, get rid of the bullet and the alien.
     for i in range(number_of_aliens):
@@ -95,6 +100,7 @@ def update_bullets(ai_settings, screen, aliens, number_of_aliens, bullets):
     for i in range(number_of_aliens):
         count += len(aliens[i])
 
+    # Repopulate the fleet
     if count == 0:
         bullets.empty()
         for j in range(number_of_aliens):
